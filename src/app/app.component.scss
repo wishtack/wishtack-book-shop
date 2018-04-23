@@ -1,0 +1,9 @@
+.wt-picture-preview {
+
+    height: 50px;
+
+    &.wt-selected {
+        filter: grayscale(100%);
+    }
+
+}

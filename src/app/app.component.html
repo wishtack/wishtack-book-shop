@@ -1,1 +1,28 @@
-<h1>Hello real 🌎!</h1>
+<h1>{{ bookName }}</h1>
+
+<div>
+
+    <img
+            [alt]="bookName"
+            [src]="getSelectedPictureUrl()">
+
+    <button
+            type="button"
+            (click)="selectNextPicture()">NEXT</button>
+
+</div>
+
+<div>
+    <img
+            *ngFor="let pictureUrl of bookPictureUrlList; let index=index"
+            class="wt-picture-preview"
+            [class.wt-selected]="index === selectedPictureIndex"
+            [src]="pictureUrl"
+            (dblclick)="selectPictureWithIndex(index)">
+</div>
+
+<div>
+    <button
+            type="button"
+            [disabled]="!isAvailable">BUY</button>
+</div>
