@@ -1,28 +1,10 @@
-<h1>{{ bookName }}</h1>
+<wt-book-preview
+        *ngFor="let book of bookList"
+        [book]="book"
+        (rate)="onRate({book: book, rating: $event})"></wt-book-preview>
 
-<div>
-
-    <img
-            [alt]="bookName"
-            [src]="getSelectedPictureUrl()">
-
-    <button
-            type="button"
-            (click)="selectNextPicture()">NEXT</button>
-
-</div>
-
-<div>
-    <img
-            *ngFor="let pictureUrl of bookPictureUrlList; let index=index"
-            class="wt-picture-preview"
-            [class.wt-selected]="index === selectedPictureIndex"
-            [src]="pictureUrl"
-            (dblclick)="selectPictureWithIndex(index)">
-</div>
-
-<div>
-    <button
-            type="button"
-            [disabled]="!isAvailable">BUY</button>
+<div *ngFor="let ratingInfo of ratingInfoList">
+    <span>{{ ratingInfo.book.title }}</span>
+    <span>:</span>
+    <span>{{ ratingInfo.rating }}</span>
 </div>

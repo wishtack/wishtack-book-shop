@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book } from './book/book';
 
 @Component({
     selector: 'wt-app',
@@ -7,25 +8,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    bookName = 'eXtreme Programming Explained';
-    bookPictureUrlList = [
-        'https://robohash.org/xp?set=set4',
-        'https://robohash.org/xp1?set=set4',
-        'https://robohash.org/xp2?set=set4'
+    bookList = [
+        new Book({
+            title: 'eXtreme Programming Explained'
+        }),
+        new Book({
+            title: 'ReWork'
+        })
     ];
-    isAvailable = false;
-    selectedPictureIndex = 0;
 
-    getSelectedPictureUrl() {
-        return this.bookPictureUrlList[this.selectedPictureIndex];
-    }
+    ratingInfoList: { book: Book; rating: number }[] = [];
 
-    selectNextPicture() {
-        this.selectedPictureIndex = (this.selectedPictureIndex + 1) % this.bookPictureUrlList.length;
-    }
+    onRate({book, rating}: { book: Book; rating: number }) {
 
-    selectPictureWithIndex(index) {
-        this.selectedPictureIndex = index;
+        const ratingInfo = {
+            book,
+            rating
+        };
+
+        this.ratingInfoList = [...this.ratingInfoList, ratingInfo];
+
     }
 
 }
