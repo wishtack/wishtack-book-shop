@@ -1,8 +1,14 @@
+export interface GoogleVolume {
+    volumeInfo: {
+        imageLinks: {
+            thumbnail: string;
+        };
+        title: string;
+    };
+}
+
 export interface GoogleVolumeListResponse {
     totalItems: number;
-    items: Array<{
-        volumeInfo: {
-            title: string;
-        }
-    }>;
+    items: GoogleVolume[];
 }
+
