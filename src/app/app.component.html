@@ -1,10 +1,1 @@
-<wt-book-preview
-        *ngFor="let book of bookList"
-        [book]="book"
-        (rate)="onRate({book: book, rating: $event})"></wt-book-preview>
-
-<div *ngFor="let ratingInfo of ratingInfoList">
-    <span>{{ ratingInfo.book.title }}</span>
-    <span>:</span>
-    <span>{{ ratingInfo.rating }}</span>
-</div>
+<wt-book-search></wt-book-search>

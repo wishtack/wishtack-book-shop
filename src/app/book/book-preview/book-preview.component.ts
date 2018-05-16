@@ -9,20 +9,11 @@ import { Book } from '../book';
 export class BookPreviewComponent implements OnInit {
 
     @Input() book: Book;
-    @Output() rate = new EventEmitter<number>();
 
     constructor() {
     }
 
     ngOnInit() {
-    }
-
-    like() {
-        this.rate.emit(5);
-    }
-
-    dislike() {
-        this.rate.emit(0);
     }
 
 }
