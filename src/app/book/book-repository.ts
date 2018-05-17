@@ -19,7 +19,7 @@ export class BookRepository {
 
     }
 
-    getBookList() {
+    getBookList(): Observable<Book[]> {
         return this.getBookListWithMeta()
             .pipe(map(bookListResponse => bookListResponse.itemList));
     }
