@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { v } from '@angular/core/src/render3';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
@@ -16,7 +15,6 @@ export class BookRepository {
     private _bookListUrl = 'https://www.googleapis.com/books/v1/volumes?q=extreme%20programming';
 
     constructor(private _httpClient: HttpClient) {
-
     }
 
     getBookList(): Observable<Book[]> {
@@ -45,8 +43,8 @@ export class BookRepository {
 
     private _googleVolumeInfoToBook(volume: GoogleVolume) {
 
-        const { volumeInfo } = volume;
-        const { imageLinks, title }  = volumeInfo;
+        const {volumeInfo} = volume;
+        const {imageLinks, title} = volumeInfo;
         let pictureUrl = null;
 
         if (imageLinks != null) {

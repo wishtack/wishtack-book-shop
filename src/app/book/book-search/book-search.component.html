@@ -1,3 +1,10 @@
+<div *ngIf="error">
+    <span>D'OH! 🤯 Something went wrong!</span>
+    <button (click)="retry()">RETRY</button>
+</div>
+
+<div>{{ bookCount$ | async }}</div>
+
 <wt-book-preview
-        *ngFor="let book of bookList"
+        *ngFor="let book of bookList$ | async"
         [book]="book"></wt-book-preview>
